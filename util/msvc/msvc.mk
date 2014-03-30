@@ -30,6 +30,8 @@ $(TARGET) : $(OBJ1) $(OBJ2)
 	$(AR) $(ARFLAGS) $** /OUT:$@
 
 $(OBJ1) : $(SRC1)
+	@if not exist $(DST_DIR)\NUL  \
+	    mkdir $(DST_DIR)
 	$(CC) $(CFLAGS) $** /Fo$@
 
 $(OBJ2) : $(SRC2) $(HEADER)
